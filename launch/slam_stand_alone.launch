@@ -1,5 +1,6 @@
 <launch>
   <node pkg="mypimouse_slam" name="keyboard_cmd_vel" type="keyboard_cmd_vel.py" required="true" />
+  <node pkg="mypimouse_joystick" name="pimouse_joystick" type="pimouse_joystick.py" required="false" />
   <node pkg="mypimouse_slam" name="motors" type="motors.py" required="true" />
 
   <node pkg="urg_node" name="urg_node" type="urg_node" required="true" >
