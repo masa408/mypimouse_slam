@@ -1,7 +1,9 @@
 <launch>
   <node pkg="mypimouse_slam" name="keyboard_cmd_vel" type="keyboard_cmd_vel.py" required="true" />
-  <node pkg="mypimouse_joystick" name="pimouse_joystick" type="pimouse_joystick.py" required="false" />
   <node pkg="mypimouse_slam" name="motors" type="motors.py" required="true" />
+
+  <node pkg="mypimouse_joystick" name="pimouse_joystick" type="pimouse_joystick.py" required="false" />
+  <node pkg="joy" name="joy_node" type="joy_node" required="false" />
 
   <node pkg="urg_node" name="urg_node" type="urg_node" required="true" >
     <param name="frame_id" value="base_link" />
@@ -24,9 +26,9 @@
 
     <param name="particles" value="100"/>  <!-- 作成する地図の候補数 -->
 
-    <param name="xmin" value="-20"/>       <!-- 地図の最小値X -->
-    <param name="ymin" value="-20"/>       <!-- 地図の最小値Y -->
-    <param name="xmax" value="20"/>        <!-- 地図の最大値X -->
-    <param name="ymax" value="20"/>        <!-- 地図の最大値Y -->
+    <param name="xmin" value="-100"/>       <!-- 地図の最小値X -->
+    <param name="ymin" value="-100"/>       <!-- 地図の最小値Y -->
+    <param name="xmax" value="100"/>        <!-- 地図の最大値X -->
+    <param name="ymax" value="100"/>        <!-- 地図の最大値Y -->
   </node>
 </launch>
