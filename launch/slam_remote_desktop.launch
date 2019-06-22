@@ -1,0 +1,24 @@
+<launch>
+  <arg name="scan_topic" default="/scan" />
+  <arg name="odom_topic" default="/odom" />
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen" >
+    <param name="base_frame" value="base_link" />
+    <param name="odom_frame" value="odom" />
+
+    <param name="maxUrange" value="4.0"/>  <!-- センサ値＞maxUrangeのときは打ち切る -->
+    <param name="maxRange" value="4.0"/>   <!-- センサ値≦maxRangeのときは信用する -->
+    
+    <param name="srr" value="0.3"/>        <!-- 直進1mあたりの直進方向の誤差[m] 30% -->
+    <param name="srt" value="0.1"/>        <!-- 回転1radあたりの直進方向の誤差[m] 10% -->
+    <param name="str" value="0.1"/>        <!-- 直進1mあたりの回転方向の誤差[rad] 10% -->
+    <param name="stt" value="0.3"/>        <!-- 回転1radあたりの回転方向の誤差[rad] 30% -->
+
+    <param name="particles" value="100"/>  <!-- 作成する地図の候補数 -->
+
+    <param name="xmin" value="-100"/>       <!-- 地図の最小値X -->
+    <param name="ymin" value="-100"/>       <!-- 地図の最小値Y -->
+    <param name="xmax" value="100"/>        <!-- 地図の最大値X -->
+    <param name="ymax" value="100"/>        <!-- 地図の最大値Y -->
+  </node>
+</launch>
